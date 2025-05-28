@@ -229,12 +229,17 @@ cflags_rel = [
 # Game flags
 cflags_WLSI_Wario = [
     "-RTTI on",
+    "-i src/",
+    "-i src/revolution/",
 ]
 
 # Good-Feel Library Flags
 cflags_WLSI_GFL = [
     "-RTTI on",
+    "-i src/",
+    "-i src/revolution/",
 ]
+
 config.linker_version = "Wii/1.0"
 
 
