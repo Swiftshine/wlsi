@@ -231,13 +231,22 @@ cflags_WLSI_Wario = [
     "-RTTI on",
     "-i src/",
     "-i src/revolution/",
+    "-i src/PowerPC_EABI_Support/",
+    "-i src/PowerPC_EABI_Support/MSL/",
+    "-i src/PowerPC_EABI_Support/MSL/MSL_C/",
+    "-i src/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/",
 ]
 
 # Good-Feel Library Flags
 cflags_WLSI_GFL = [
     "-RTTI on",
     "-i src/",
+    "-i src/gfl/",
     "-i src/revolution/",
+    "-i src/PowerPC_EABI_Support/",
+    "-i src/PowerPC_EABI_Support/MSL/",
+    "-i src/PowerPC_EABI_Support/MSL/MSL_C/",
+    "-i src/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/",
 ]
 
 config.linker_version = "Wii/1.0"
@@ -288,6 +297,15 @@ config.libs = [
             Object(NonMatching, "Runtime.PPCEABI.H/__init_cpp_exceptions.cpp"),
         ],
     },
+    {
+        "lib": "Good-Feel Library",
+        "mw_version": config.linker_version,
+        "cflags": cflags_WLSI_GFL,
+        "progress_category": "gfl",
+        "objects": [
+            Object(NonMatching, "gfl/gflHeapRevo.cpp"),
+        ]
+    }
 ]
 
 
@@ -311,8 +329,9 @@ def link_order_callback(module_id: int, objects: List[str]) -> List[str]:
 # Optional extra categories for progress tracking
 # Adjust as desired for your project
 config.progress_categories = [
-    ProgressCategory("game", "Game Code"),
+    ProgressCategory("wario", "Game Code"),
     ProgressCategory("sdk", "SDK Code"),
+    ProgressCategory("gfl", "Good-Feel Library Code")
 ]
 config.progress_each_module = args.verbose
 # Optional extra arguments to `objdiff-cli report generate`
