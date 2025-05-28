@@ -1,0 +1,21 @@
+Sections:
+	.init       type:code align:4
+	extab       type:rodata align:32
+	extabindex  type:rodata align:32
+	.text       type:code align:4
+	.ctors      type:rodata align:8
+	.dtors      type:rodata align:4
+	.rodata     type:rodata align:32
+	.data       type:data align:8
+	.bss        type:bss align:128
+	.sdata      type:data align:16
+	.sbss       type:bss align:8
+	.sdata2     type:rodata align:32
+	.sbss2      type:bss align:4
+
+PowerPC_EABI_Support/Runtime/__init_cpp_exceptions.cpp:
+	.text       start:0x8030556C end:0x803055DC
+	.ctors      start:0x804406A0 end:0x804406A4 rename:.ctors$10
+	.dtors      start:0x80441160 end:0x80441164 rename:.dtors$10
+	.dtors      start:0x80441164 end:0x80441168 rename:.dtors$15
+	.sdata      start:0x8061CFA0 end:0x8061CFA8

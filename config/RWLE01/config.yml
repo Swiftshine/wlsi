@@ -1,0 +1,9 @@
+# See config.example.yml for documentation.
+object_base: orig/RWLE01
+object: sys/main.dol
+hash: 332548f09599e6da3e36f81f275d8d16c10dc72c
+symbols: config/RWLE01/symbols.txt
+splits: config/RWLE01/splits.txt
+# Change this to match the linker version.
+# See config.example.yml for a list.
+mw_comment_version: 14
