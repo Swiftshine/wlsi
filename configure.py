@@ -195,7 +195,8 @@ cflags_base = [
     "-RTTI off",
     "-fp_contract on",
     "-str reuse",
-    "-multibyte",  # For Wii compilers, replace with `-enc SJIS`
+    # "-multibyte",  # For Wii compilers, replace with `-enc SJIS`
+    "-enc SJIS",
     "-i include",
     f"-i build/{config.version}/include",
     f"-DBUILD_VERSION={version_num}",
@@ -227,26 +228,28 @@ cflags_rel = [
 ]
 
 # Game flags
-cflags_WLSI_Wario = [
+
+game_includes = [
     "-RTTI on",
-    "-i src/",
-    "-i src/revolution/",
-    "-i src/PowerPC_EABI_Support/",
-    "-i src/PowerPC_EABI_Support/MSL/",
-    "-i src/PowerPC_EABI_Support/MSL/MSL_C/",
-    "-i src/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/",
+    "-nosyspath",
+    "-i lib",
+    "-i src",
+    "-i lib/PowerPC_EABI_Support",
+    "-i lib/PowerPC_EABI_Support/MSL",
+    "-i lib/PowerPC_EABI_Support/MSL/MSL_C",
+    "-i lib/PowerPC_EABI_Support/MSL/MSL_C++",
+    "-i lib/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common",
+]
+
+cflags_WLSI_Wario = [
+    *cflags_base,
+    *game_includes
 ]
 
 # Good-Feel Library Flags
 cflags_WLSI_GFL = [
-    "-RTTI on",
-    "-i src/",
-    "-i src/gfl/",
-    "-i src/revolution/",
-    "-i src/PowerPC_EABI_Support/",
-    "-i src/PowerPC_EABI_Support/MSL/",
-    "-i src/PowerPC_EABI_Support/MSL/MSL_C/",
-    "-i src/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/",
+    *game_includes,
+    "-i src/gfl"
 ]
 
 config.linker_version = "Wii/1.0"

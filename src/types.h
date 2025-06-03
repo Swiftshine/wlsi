@@ -1,18 +1,16 @@
-#ifndef WARIO_TYPES_H
-#define WARIO_TYPES_H
+#pragma once
 
+#include <revolution/types.h>
 #include <stdint.h>
 #include <stddef.h>
+#include "macros.h"
+
 #ifdef __cplusplus
 #include <cstdarg>
 #else
 #include <stdarg.h>
 #endif
-#include "macros.h"
-#include <revolution/types.h>
+
 
 #define override
-
-
-
-#endif
+typedef unsigned int uint;
