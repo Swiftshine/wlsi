@@ -229,8 +229,10 @@ cflags_rel = [
 
 # Game flags
 
-game_includes = [
+game_flags = [
     "-RTTI on",
+    "-inline off",
+    "-use_lmw_stmw on",
     "-i lib",
     "-i src",
     "-i lib/PowerPC_EABI_Support",
@@ -242,13 +244,13 @@ game_includes = [
 
 cflags_WLSI_Wario = [
     *cflags_base,
-    *game_includes
+    *game_flags,
 ]
 
 # Good-Feel Library Flags
 cflags_WLSI_GFL = [
     *cflags_base,
-    *game_includes,
+    *game_flags,
     "-i src/gfl"
 ]
 
