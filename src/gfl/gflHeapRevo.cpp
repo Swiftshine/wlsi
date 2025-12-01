@@ -13,7 +13,6 @@ HeapRevo::HeapRevo(const char* pHeapName, u8 heapID, size_t size, u16 optFlag, u
     MemoryRevo::GetInstance()->SetHeap(this);
 }
 
-// Nonmatching: https://decomp.me/scratch/lUfx0
 HeapRevo::HeapRevo(const char* pHeapName, u8 heapID) {
     mMemType = 0;
     mHeapID = heapID;
@@ -29,7 +28,6 @@ HeapRevo::~HeapRevo() {
     MemoryRevo::GetInstance()->ClearHeap(this);
 }
 
-// Nonmatching: https://decomp.me/scratch/HkTCy
 void HeapRevo::Init(size_t size, u16 optFlag, s32 memType) {
     mMemType = memType;
 
@@ -48,6 +46,7 @@ void HeapRevo::Reset() {
     void* end;
 
     MEMiHeapHead* expHeap = mExpHeap;
+
     if (expHeap != nullptr) {
         end = expHeap->end;
         MEMDestroyExpHeap(expHeap);
@@ -86,11 +85,14 @@ s32 HeapRevo::vf20(/* args unknown */) {
     return 1;
 }
 
-// Nonmatching
 bool HeapRevo::WithinRange(void* pData) {
     void* end = mExpHeap->end;
 
-    return pData >= mExpHeap && pData <= end;
+    if (pData >= mExpHeap && pData <= end) {
+        return true;
+    }
+
+    return false;
 }
 
 MEMiHeapHead* HeapRevo::GetExpHeap() {
@@ -101,7 +103,6 @@ void* HeapRevo::GetExpHeapEnd() {
     return mExpHeap->end;
 }
 
-// Nonmatching
 void* HeapRevo::GetArenaLo(s32 memType) {
     void* arena;
 
@@ -126,7 +127,6 @@ void* HeapRevo::GetArenaLo(s32 memType) {
     return arena;
 }
 
-// Nonmatching
 void* HeapRevo::GetArenaHi(s32 memType) {
     void* arena;
 
@@ -150,7 +150,6 @@ void* HeapRevo::GetArenaHi(s32 memType) {
     return arena;
 }
 
-// Nonmatching
 void HeapRevo::SetArenaLo(s32 memType, void* pBoundary) {
     switch (memType) {
         case 1: {
@@ -165,7 +164,7 @@ void HeapRevo::SetArenaLo(s32 memType, void* pBoundary) {
     }
 }
 
-// Nonmatching
+
 void HeapRevo::SetArenaHi(s32 memType, void* pBoundary) {
     switch (memType) {
         case 1: {
@@ -184,7 +183,7 @@ size_t HeapRevo::GetArenaSize(s32 memType) {
     return (size_t)GetArenaHi(memType) - (size_t)GetArenaLo(memType);
 }
 
-// Nonmatching
+
 void* HeapRevo::GetArena(s32 memType, size_t* pSize) {
     void* arenaLo = GetArenaLo(memType);
     void* arenaHi = GetArenaHi(memType);

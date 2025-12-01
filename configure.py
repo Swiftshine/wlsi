@@ -254,7 +254,7 @@ cflags_WLSI_GFL = [
     "-i src/gfl"
 ]
 
-config.linker_version = "Wii/1.0"
+config.linker_version = "GC/3.0a3.4"
 
 
 # Helper function for Dolphin libraries

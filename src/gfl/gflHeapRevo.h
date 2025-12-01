@@ -5,7 +5,9 @@
 
 namespace gfl {
 
-class HeapRevo {
+class Heap { };
+
+class HeapRevo : public Heap {
 public:
     static MEMAllocatorFuncs AllocFuncs;
     

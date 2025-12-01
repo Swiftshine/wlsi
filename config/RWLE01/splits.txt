@@ -15,6 +15,9 @@ Sections:
 
 gfl/gflHeapRevo.cpp:
 	.text       start:0x8001580C end:0x80015CF0
+	.rodata     start:0x80441608 end:0x80441628
+	.data       start:0x8047A148 end:0x8047A188
+	.sdata      start:0x8061A798 end:0x8061A7A8
 
 PowerPC_EABI_Support/Runtime/__init_cpp_exceptions.cpp:
 	.text       start:0x8030556C end:0x803055DC

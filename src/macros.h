@@ -2,6 +2,7 @@
 #define MACROS_H
 
 #include "compiler_macros.h"
+#include <revolution/rvl_macros.h>
 
 #define STR_(x)					#x
 #define STR(x)					STR_(x)
